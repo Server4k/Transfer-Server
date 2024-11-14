@@ -13,7 +13,7 @@ require('dotenv').config()
 app.use(cors(
     {
       origin : ["https://transfer-client.vercel.app"],
-        method : ["POST","GET"],
+        method : ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
         ));
@@ -181,6 +181,10 @@ app.put('/api/quote/:quoteId', async (req, res) => {
         res.json({ status: 'error', error: 'Invalid token' })
     }
 })
+
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Test API is working!' });
+});
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`)

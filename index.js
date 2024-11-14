@@ -14,7 +14,7 @@ app.use(cors(
     {
       origin : ["https://transfer-client.vercel.app"],
         method : ["POST","GET"],
-        credintals: true
+        credentials: true
     }
         ));
 app.use(express.json())

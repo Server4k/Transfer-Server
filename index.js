@@ -13,7 +13,7 @@ require('dotenv').config()
 app.use(cors(
     {
       origin : ["https://transfer-client.vercel.app"],
-        method : ["POST", "GET", "PUT", "DELETE"],
+  methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
         credentials: true
     }
         ));

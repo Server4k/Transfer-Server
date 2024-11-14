@@ -12,7 +12,7 @@ require('dotenv').config()
 // Middleware ["https://transfer-client.vercel.app"]
 app.use(cors(
     {
-      origin : "*",
+      origin : ["https://transfer-client.vercel.app"],
       methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
         credentials: true
     }

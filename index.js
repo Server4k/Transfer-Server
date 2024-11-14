@@ -186,6 +186,5 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'Test API is working!' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`)
-})
+module.exports = app;
+

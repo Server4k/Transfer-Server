@@ -9,11 +9,11 @@ const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 require('dotenv').config()
 
-// Middleware
+// Middleware ["https://transfer-client.vercel.app"]
 app.use(cors(
     {
-      origin : ["https://transfer-client.vercel.app"],
-  methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
+      origin : "*",
+      methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
         credentials: true
     }
         ));

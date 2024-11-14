@@ -20,7 +20,7 @@ app.use(cors(
 app.use(express.json())
 
 // Environment variables
-const PORT = process.env.PORT || 1337
+const PORT = 80
 const MONGODB_URI = process.env.MONGODB_URI
 const JWT_SECRET = process.env.JWT_SECRET
 const ENCRYPTION_KEY = Buffer.from(process.env.ENCRYPTION_KEY, 'hex') // Ensure 32-byte key

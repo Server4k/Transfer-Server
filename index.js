@@ -74,10 +74,22 @@ app.get('/api/quotes', async (req, res) => {
             return res.json({ status: 'error', error: 'User not found' });
         }
 
-        const quotesWithIds = user.quotes.map((quote, index) => ({
-            _id: quote._id || index,
-            text: quote
-        }));
+        // Ensure consistent quote structure
+        const quotesWithIds = user.quotes.map(quote => {
+            if (typeof quote === 'string') {
+                return {
+                    _id: new mongoose.Types.ObjectId(),
+                    text: quote
+                };
+            }
+            return quote;
+        });
+
+        // Update user with structured quotes if necessary
+        if (quotesWithIds !== user.quotes) {
+            user.quotes = quotesWithIds;
+            await user.save();
+        }
 
         return res.json({ status: 'ok', quotes: quotesWithIds });
     } catch (err) {
